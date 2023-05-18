@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            background-image: linear-gradient(to right, lightblue, lightseagreen, lightgreen);
+            background-size: cover;
+        }
+
+        h1 {
+            margin-top: 2%;
+            color: white;
+            text-align: center;
+        }
+
+        .div {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            background-image: linear-gradient(to right, lightblue, lightseagreen, lightgreen);
+            padding: 1% 7% 2% 3%;
+            border-radius: 10px;
+            justify-content: center;
+            margin: 1% 0% 0% 35%;
+        }
+
+        #fn,
+        #ln,
+        #date,
+        #phone,
+        #email,
+        #password,
+        #submit {
+            height: 100%;
+            border-radius: 10px;
+            border: none;
+            width: 100%;
+            margin: 5% 0% 5% 8%;
+            padding: 3% 0% 4% 5%;
+            font-size: 100%;
+            font-weight: 550;
+        }
+
+        #submit {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            height: 100%;
+            width: 100%;
+            margin: 5% 0% 0% 8%;
+            background-color: green;
+            color: white;
+            padding: 3.5% 0%;
+            font-size: 100%;
+            cursor: pointer;
+        }
+
+        #submit:hover {
+            background-color: rgb(7, 73, 7);
+            color: rgb(188, 182, 182);
+        }
+
+        #blank,
+        #blank1,
+        #blank2,
+        #blank3 {
+            color: red;
+            display: none;
+            margin: 0% 0% 0% 8%;
+        }
+
+        @media only screen and(min-width:1025px),
+        (max-width:1440px) {
+            h1 {
+                margin-top: 1%;
+                font-size: 300%;
+            }
+
+            .div {
+                width: 30%;
+                padding: 2% 5% 2% 1%;
+                margin: 1% 0% 4% 35%;
+            }
+
+            #fn,
+            #ln,
+            #date,
+            #phone,
+            #email,
+            #password,
+            #submit {
+                width: 100%;
+                margin: 5% 0% 5% 8%;
+                padding: 3% 0% 4% 5%;
+                font-size: 100%;
+            }
+        }
+
+        @media only screen and(min-width:769px),
+        (max-width:1024px) {
+            h1 {
+                margin-top: 1%;
+                font-size: 200%;
+            }
+
+            .div {
+                width: 30%;
+                padding: 2% 5% 2% 1%;
+                margin: 1% 0% 4% 35%;
+            }
+
+            #fn,
+            #ln,
+            #date,
+            #phone,
+            #email,
+            #password,
+            #submit {
+                width: 100%;
+                margin: 5% 0% 5% 8%;
+                padding: 3% 0% 4% 5%;
+                font-size: 100%;
+            }
+        }
+
+        @media only screen and(min-width:425px),
+        (max-width:768px) {
+            h1 {
+                margin-top: 1%;
+                font-size: 150%;
+            }
+
+            .div {
+                width: 55%;
+                padding: 2% 8% 2% 0%;
+                margin: 3% 0% 4% 25%;
+            }
+
+            #fn,
+            #ln,
+            #date,
+            #phone,
+            #email,
+            #password,
+            #submit {
+                width: 100%;
+                margin: 5% 0% 5% 8%;
+                padding: 3% 0% 4% 5%;
+                font-size: 80%;
+            }
+        }
+
+        @media only screen and(min-width:321px),
+        (max-width:425px) {
+            h1 {
+                margin-top: 10%;
+                font-size: 200%;
+            }
+
+            .div {
+                width: 95%;
+                padding: 5% 13% 5% 0%;
+                margin: 7% 8% 0% 2.5%;
+            }
+        }
+
+        @media only screen and(min-width:200px),
+        (max-width:320px) {
+            h1 {
+                margin-top: 20%;
+                font-size: 180%;
+            }
+
+            .div {
+                width: 95%;
+                padding: 5% 5% 5% 0%;
+                margin: 10% 0% 0% 2.3%;
+            }
+
+            #fn,
+            #ln,
+            #date,
+            #phone,
+            #email,
+            #password,
+            #submit {
+                width: 90%;
+                margin: 5% 0% 5% 8%;
+                padding: 3% 0% 4% 5%;
+                font-size: 90%;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Contact Form</h1>
+    <form name="f1" onsubmit="return invalid()" method="post">
+        <div class="div">
+            <input id="fn" name="firstname" type="text" maxlength="20" placeholder="First Name">
+            <span id="blank"></span>
+            <input id="ln" name="lastname" type="text" maxlength="20" placeholder="Last Name">
+            <span id="blank1"></span>
+            <input id="date" type="date" placeholder="Date" required>
+            <input id="phone" name="phone" type="tel" pattern="[0-9]{2}-[0-9]{10}" maxlength="13" placeholder="Phone">
+            <span id="blank2"></span>
+            <input id="email" name="email" type="email" placeholder="Email">
+            <span id="blank3"></span>
+            <input id="password" name="password" type="password" minlength="8"
+                placeholder="Password" required>
+            <input id="submit" type="submit" value="Submit">
+        </div>
+    </form>
+    <script>
+        function invalid() {
+            let fname = document.forms["f1"]["firstname"].value;
+            let lname = document.forms["f1"]["lastname"].value;
+            let phone = document.forms["f1"]["phone"].value;
+            let email = document.forms["f1"]["email"].value;
+            if (fname == "") {
+                document.getElementById("blank").style.display = "block";
+                document.getElementById("blank").innerHTML = "First Name must be filled out !";
+                return false;
+            }
+            else {
+                document.getElementById("blank").style.display = "none";
+            }
+            if (lname == "") {
+                document.getElementById("blank1").style.display = "block";
+                document.getElementById("blank1").innerHTML = "Last Name must be filled out !";
+                return false;
+            }
+            else {
+                document.getElementById("blank1").style.display = "none";
+            }
+            if (phone == "") {
+                document.getElementById("blank2").style.display = "block";
+                document.getElementById("blank2").innerHTML = "Phone Number must be filled out !";
+                return false;
+            }
+            else {
+                document.getElementById("blank2").style.display = "none";
+            }
+            if (email == "") {
+                document.getElementById("blank3").style.display = "block";
+                document.getElementById("blank3").innerHTML = "Email must be filled out !";
+                return false;
+            }
+            else {
+                document.getElementById("blank3").style.display = "none";
+            }
+        }
+        document.getElementById("phone").placeholder="Phone (xx-xxxxxxxxxx)";
+
+    </script>
+</body>
+
+</html>
